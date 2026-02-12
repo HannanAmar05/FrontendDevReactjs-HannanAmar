@@ -14,18 +14,18 @@ const Filter = ({ restaurants, onFilterChange }: RestaurantFilter) => {
 
       // 2. Filter Price
       const matchesPrice =
-        filterPrice === "all" ? true
+        filterPrice === "all"
+          ? true
           : filterPrice === "low"
             ? res.price < 25000
             : filterPrice === "medium"
               ? res.price >= 25000 && res.price <= 40000
               : res.price > 40000;
 
-      // 3. Filter Category (Gunakan properti category hasil mocking kita tadi)
-      // const matchesCategory =
-      //   filterCategory === "all" ? true : res.category === filterCategory;
+      const matchesCategory =
+        filterCategory === "all" ? true : res.category === filterCategory;
 
-      return matchesOpen && matchesPrice 
+      return matchesOpen && matchesPrice && matchesCategory;
     });
 
     onFilterChange(filtered || []);
@@ -73,11 +73,12 @@ const Filter = ({ restaurants, onFilterChange }: RestaurantFilter) => {
             onChange={(e) => setFilterCategory(e.target.value)}
             className="bg-gray-50 border-none rounded-lg p-2 text-sm text-gray-600 outline-none cursor-pointer"
           >
-            <option value="all">Categories</option>
-            <option value="Italian">Italian</option>
+            <option value="all">Semua Kategori</option>
+            <option value="Jawa">Jawa</option>
+            <option value="Bali">Bali</option>
+            <option value="Indonesia">Indonesia</option>
             <option value="Modern">Modern</option>
-            <option value="Soup">Soup</option>
-            <option value="Japanese">Japanese</option>
+            <option value="Tradisional">Tradisional</option>
           </select>
         </div>
       </div>

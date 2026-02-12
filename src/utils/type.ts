@@ -7,6 +7,7 @@ export interface Restaurant {
   rating: number;
   isOpen: boolean;
   price: number;
+  category: string;
 }
 
 export interface RestaurantResponse {
